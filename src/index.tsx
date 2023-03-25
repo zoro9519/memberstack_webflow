@@ -1,19 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import ReactDOM, { Root } from 'react-dom/client';
+import { Modal } from "./Modal";
+import { Table } from "./Table";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export const ID_MODAL = 'modal-root';
+export const ID_TABLE = 'table-root';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const roots = {} as { [id: string]: Root | null };
+
+const components = {
+  [ID_MODAL]: <Modal />,
+  [ID_TABLE]: <Table />,
+} as { [id: string]: JSX.Element };
+
+window.REACT_RENDER = (id: string) => {
+  const el = document.getElementById(id)!;
+  roots[id] = ReactDOM.createRoot(el);
+  roots[id]?.render(components[id]);
+};
+
+window.REACT_UNMOUNT = (id: string) => {
+  roots[id]?.unmount();
+  roots[id] = null;
+}
+
+export const unmountModal = () => window.REACT_UNMOUNT(ID_MODAL);
+
+document.dispatchEvent(new Event('REACTLoaded'));
