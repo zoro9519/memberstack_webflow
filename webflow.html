@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- MemberStack script -->
     <script data-memberstack-app="app_cl7oz7qvt01aa0wi873rdc1w3" src="https://static.memberstack.com/scripts/v1/memberstack.js" type="text/javascript"></script>
     <!-- Custom React App -->
     <script>
@@ -25,13 +26,12 @@
     <div id="root-modal"></div>
     <div id="root-table"></div>
     <script>
-      document
-        .addEventListener("REACTLoaded", () => window.REACT_RENDER('root-table'));
+      // Render the Table when React app is loaded
+      document.addEventListener("REACTLoaded", () => window.REACT_RENDER('root-table'));
+      // Open the Modal when button is clicked
       document
         .getElementById('button-modal')
         .addEventListener('click', () => window.REACT_RENDER('root-modal'));
-      $memberstackDom.getCurrentMember()
-        .then(res => res.data ? console.log(res.data) : $memberstackDom.openModal("SIGNUP"));
     </script>
   </body>
 </html>
