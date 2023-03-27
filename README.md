@@ -1,6 +1,9 @@
 # Intro
 
-This repo contains example of mixing Webflow and React in app powered by MemberStack. For a full tutorial check out https://jasiek.net/posts/react-webflow-memberstack, for a working example go to demo page: https://react-webflow-memberstack.jasiek.net/
+This repo contains example of mixing Webflow and React in app powered by MemberStack.
+
+- Tutorial: https://jasiek.net/posts/react-webflow-memberstack
+- Demo page: https://react-webflow-memberstack.jasiek.net
 
 # Getting Started with Create React App
 
