@@ -5,8 +5,8 @@ import ReactDOM, { Root } from 'react-dom/client';
 import { Modal } from "./Modal";
 import { Table } from "./Table";
 
-export const ID_MODAL = 'modal-root';
-export const ID_TABLE = 'table-root';
+export const ID_MODAL = 'root-modal';
+export const ID_TABLE = 'root-table';
 
 const roots = {} as { [id: string]: Root | null };
 

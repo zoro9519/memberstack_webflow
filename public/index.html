@@ -4,14 +4,14 @@
     <script data-memberstack-app="app_clfoaqm2j00tz0ukuaocdeyfq" src="https://static.memberstack.com/scripts/v1/memberstack.js" type="text/javascript"></script>
   </head>
   <body>
-    <button id="modal-button">Open modal</button>
-    <div id="modal-root"></div>
-    <div id="table-root"></div>
+    <button id="button-modal">Open modal</button>
+    <div id="root-modal"></div>
+    <div id="root-table"></div>
     <script>
-      document.addEventListener("REACTLoaded", () => window.REACT_RENDER('table-root'));
+      document.addEventListener("REACTLoaded", () => window.REACT_RENDER('root-table'));
       document
-        .getElementById('modal-button')
-        .addEventListener('click', () => window.REACT_RENDER('modal-root'));
+        .getElementById('button-modal')
+        .addEventListener('click', () => window.REACT_RENDER('root-modal'));
       $memberstackDom.getCurrentMember()
         .then(res => res.data ? console.log(res.data) : $memberstackDom.openModal("LOGIN"));
     </script>
